@@ -1,0 +1,33 @@
+.main{
+    display: flex;
+    justify-content: center;
+    align-items:center ;
+    min-height: 100vh;
+    background-color: #f4f6fb;
+    width:210vh;
+}
+.job-details{
+    
+   width: 350px;
+   padding: 25px;
+   border-radius: 5px;
+  background: #5a74d3;
+  border-radius: 1.2rem;
+  box-shadow: 0px 1rem 1.5rem -0.9rem #000000e1;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+   
+}
+.job-details:hover{
+    transform:scale(1.03);
+    cursor: pointer;
+    transition: 0.4s;
+}
+.job-details h2{
+    color: rgb(52, 215, 158);
+}
+.job-details p{
+    color: beige;
+    font-size: 18px;
+    
+    
+}
