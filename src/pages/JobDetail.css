@@ -1,0 +1,36 @@
+.main {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(to right, #dbeafe, #bfdbfe);
+}
+
+.job-details {
+    width: 90%;
+    max-width: 600px;
+    margin-left: 100px;
+
+    background: linear-gradient(135deg, #2563eb, #1e40af);
+    padding: 35px;
+    border-radius: 20px;
+    color: white;
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+    transition: 0.3s ease;
+}
+
+.job-details:hover {
+    transform: scale(1.02);
+}
+
+.job-details h2 {
+    color: #a5f3fc;
+    margin-bottom: 20px;
+}
+
+.job-details p {
+    margin: 8px 0;
+    font-size: 15px;
+}

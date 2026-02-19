@@ -1,30 +1,35 @@
+
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { useJobContext } from "../context/JobContext";
-import "./JobDetails.css"
+import "./JobDetail.css"
+
 
 export default function JobDetails() {
-  const { id } = useParams(); // gets job ID from URL
-  const { jobs } = useJobContext();
+  const { id } = useParams();
+  const [job, setJob] = useState(null);
 
-  const job = jobs.find((job) => job.id === Number(id));
+  useEffect(() => {
+    fetch(`http://localhost:3001/jobs/${id}`)
+      .then((res) => res.json())
+      .then((data) => setJob(data))
+      .catch((err) => console.error(err));
+  }, [id]);
 
-  if (!job) return <p>Job not found</p>;
+  if (!job) return <p>Loading...</p>;
 
   return (
-    <div className="main">
-        <div className="job-details">
+    <div className="job-details">
       <h2>{job.jobTitle}</h2>
-      <p>{job.jobDescription}</p>
-      <p>Company: {job.company}</p>
-      <p>Salary: {job.salary}</p>
-      <p>Location: {job.location}</p>
-      <p>Qualification: {job.qualification}</p>
-      <p>Education: {job.education}</p>
-      <p>Contact: {job.contactName} | {job.mobileNumber} | {job.email}</p>
-      <p>Start Date: {job.startDate}</p>
+      <p><strong>Description:</strong> {job.jobDescription}</p>
+      <p><strong>Company:</strong> {job.company}</p>
+      <p><strong>Salary:</strong> KES {job.salary}</p>
+      <p><strong>Start Date:</strong> {job.startDate}</p>
+      <p><strong>Notice Period:</strong> {job.noticePeriod}</p>
+      <p><strong>Location:</strong> {job.location}</p>
+      <p><strong>Qualification:</strong> {job.qualification}</p>
+      <p><strong>Education:</strong> {job.education}</p>
+      <p><strong>Contact Person:</strong> {job.name}</p>
+      <p><strong>Email:</strong> {job.email}</p>
+      <p><strong>Mobile:</strong> {job.mobileNumber}</p>
     </div>
-
-    </div>
-    
-  );
-}
+  )}

@@ -1,0 +1,47 @@
+{
+  "jobs": [
+    {
+      "id": "95dc",
+      "jobTitle": "Travel Consultant",
+      "jobDescription": "Booking travel itineraries",
+      "company": "Poriscape",
+      "salary": "1000000",
+      "startDate": "2026-03-01",
+      "noticePeriod": "1 Week",
+      "name": "Fatuma Asman",
+      "location": "Nairobi",
+      "qualification": "Diploma ",
+      "education": "Degree"
+    },
+    {
+      "id": "11b2",
+      "jobTitle": "jhdhfe",
+      "jobDescription": "sdfghjk",
+      "company": "elimu bora",
+      "salary": "45678",
+      "startDate": "2026-02-03",
+      "noticePeriod": "5",
+      "name": "dfghj",
+      "mobileNumber": "4567890",
+      "email": "sdfghjkltr@gmail.com",
+      "location": "kitale",
+      "qualification": "undergraduate",
+      "education": "undergraduate"
+    },
+    {
+      "id": "a390",
+      "jobTitle": "jhdhfe",
+      "jobDescription": "sdfghjk",
+      "company": "dfghjk",
+      "salary": "34567",
+      "startDate": "2026-02-03",
+      "noticePeriod": "2",
+      "name": "dfghjk fghj",
+      "mobileNumber": "4567890",
+      "email": "dfgh@gmail.com",
+      "location": "rtjyu",
+      "qualification": "undergraduate",
+      "education": "undergraduate"
+    }
+  ]
+}

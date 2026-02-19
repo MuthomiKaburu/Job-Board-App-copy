@@ -1,34 +1,39 @@
-import React from "react";
-
-import {useJobContext} from "../context/JobContext"
+import { useEffect, useState } from "react";
 import JobCard from "../components/JobCard";
-import "./Jobpage.css"
+import "./JobPage.css";
 
-export default function JobPage(){
-    const {jobs} = useJobContext();
-    console.log(jobs)
+export default function JobPage() {
+  const [jobs, setJobs] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-    return(
-        <>
-        <div className="jobs-page">
-            <h2>Available Jobs</h2>
+  useEffect(() => {
+    fetch("http://localhost:3001/jobs")
+      .then((res) => res.json())
+      .then((data) => {
+        setJobs(data);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Error fetching jobs:", err);
+        setLoading(false);
+      });
+  }, []);
 
-             {
-            jobs.length === 0 ? <p>No Jobs found</p> :
+  if (loading) return <p>Loading jobs...</p>;
 
-            (
-                <div className="jobs-container">
-                    {jobs.map((job)=>(
-                        <JobCard key={job.id} job={job}/>
-                    ))}
-                </div>
-            )
+  return (
+    <div className="jobs-page">
+      <h2>Available Jobs</h2>
 
-
-
-        }
+      {jobs.length === 0 ? (
+        <p>No Jobs Found</p>
+      ) : (
+        <div className="jobs-container">
+          {jobs.map((job) => (
+            <JobCard key={job.id} job={job} />
+          ))}
         </div>
-       
-        </>
-    )
+      )}
+    </div>
+  );
 }

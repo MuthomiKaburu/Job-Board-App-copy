@@ -122,6 +122,38 @@ function JobForm() {
 
         <input
           type="text"
+          name="noticePeriod"
+          placeholder="Notice Period"
+          value={formData.noticePeriod}
+          onChange={handleChange}
+        />
+
+        <input
+          type="text"
+          name="name"
+          placeholder="Contact Person Name"
+          value={formData.name}
+          onChange={handleChange}
+        />
+
+        <input
+          type="text"
+          name="mobileNumber"
+          placeholder="Mobile Number"
+          value={formData.mobileNumber}
+          onChange={handleChange}
+        />
+
+        <input
+          type="text"
+          name="email"
+          placeholder="Email"
+          value={formData.email}
+          onChange={handleChange}
+        />
+
+        <input
+          type="text"
           name="location"
           placeholder="Location"
           value={formData.location}
