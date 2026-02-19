@@ -1,0 +1,24 @@
+.jobs-page {
+    min-height: 100vh;
+    background: linear-gradient(to right, #dbeafe, #bfdbfe);
+    padding: 40px 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.jobs-page h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #1e3a8a;
+}
+.jobs-container {
+    width: 100%;
+    max-width: 1600px;
+
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+}

@@ -131,7 +131,7 @@ function JobForm() {
           type="text"
           name="mobileNumber"
           placeholder="Mobile Number"
-          value={formData.name}
+          value={formData.mobileNumber}
           onChange={handleChange}
         />
 
@@ -139,7 +139,7 @@ function JobForm() {
           type="text"
           name="email"
           placeholder="Email"
-          value={formData.name}
+          value={formData.email}
           onChange={handleChange}
         />
 
