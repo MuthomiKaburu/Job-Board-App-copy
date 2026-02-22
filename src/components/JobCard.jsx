@@ -1,8 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { useJobContext } from "../context/JobContext";
 import "./JobCard.css";
 
 export default function JobCard({ job }) {
+  const { deleteJob } = useJobContext();
+
   return (
     <div className="job-card">
       <h3>{job.jobTitle}</h3>
@@ -11,9 +14,15 @@ export default function JobCard({ job }) {
       <p>Location: {job.location}</p>
       <p>Salary: KES {job.salary}</p>
 
-      <Link to={`/jobs/${job.id}`}>
-        <button>View Details</button>
-      </Link>
+      <div className="card-buttons">
+        <Link to={`/jobs/${job.id}`}>
+          <button>View Details</button>
+        </Link>
+
+        <button onClick={() => deleteJob(job.id)}>
+          Delete
+        </button>
+      </div>
     </div>
   );
 }

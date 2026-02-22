@@ -1,0 +1,85 @@
+.job-card {
+  width: 100%;
+  max-width: 360px;
+  background: #0f172a; /* navy */
+  color: white;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 15px 30px rgba(0, 0, 50, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.job-card:hover {
+  transform: translateY(-5px);
+}
+
+.job-card h3 {
+  color: #60a5fa;
+}
+
+.card-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.card-buttons button {
+  flex: 1;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+
+/* View button */
+.card-buttons a:first-child button {
+  background: #2563eb;
+  color: white;
+}
+
+.card-buttons a:first-child button:hover {
+  background: #1d4ed8;
+}
+
+/* Edit button */
+.card-buttons a:nth-child(2) button {
+  background: #1e40af;
+  color: white;
+}
+
+.card-buttons a:nth-child(2) button:hover {
+  background: #1e3a8a;
+}
+
+/* Delete button */
+.card-buttons button:last-child {
+  background: #0ea5e9; /* blue instead of red */
+  color: white;
+}
+
+.card-buttons button:last-child:hover {
+  background: #0284c7;
+}
+.jobs-page {
+  width: 100%;
+  max-width: 1200px;
+  margin: 20px auto;
+  min-height: 80vh;
+  padding: 20px;
+  border-radius: 16px;
+  background: #e6f0ff;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.jobs-container {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
