@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import JobCard from "../components/JobCard";
+import jobsData from "../../db.json";
 import "./JobPage.css";
 
 export default function JobPage() {
@@ -7,16 +8,9 @@ export default function JobPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:3001/jobs")
-      .then((res) => res.json())
-      .then((data) => {
-        setJobs(data);
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error("Error fetching jobs:", err);
-        setLoading(false);
-      });
+    // Load jobs from the imported JSON data
+    setJobs(jobsData.jobs);
+    setLoading(false);
   }, []);
 
   if (loading) return <p>Loading jobs...</p>;
