@@ -1,0 +1,36 @@
+.update-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 30px;
+  background: #f1f5f9;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.update-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.update-container input,
+.update-container textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.update-container button {
+  width: 100%;
+  padding: 12px;
+  background-color: #16a34a;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.update-container button:hover {
+  background-color: #15803d;
+}
