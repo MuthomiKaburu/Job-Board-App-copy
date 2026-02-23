@@ -1,12 +1,16 @@
-import { StrictMode } from "react";
-import { createRoot } from "react-dom/client";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import JobProvider from "./context/JobContext";
 import { Toaster } from "react-hot-toast";
-import "./index.css";
-import App from "./App.jsx";
 
-createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <App />
-    <Toaster position="top-right" reverseOrder={false} />
-  </StrictMode>
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <React.StrictMode>
+    <JobProvider>
+      <Toaster position="top-center" reverseOrder={false} />
+
+      <App />
+      
+    </JobProvider>
+  </React.StrictMode>
 );

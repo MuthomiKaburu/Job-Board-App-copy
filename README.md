@@ -1,18 +1,73 @@
-# React + Vite
+# Project Overview
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+The Job Board App is a React-based application that allows users to view job postings, create new jobs, edit existing jobs, and delete jobs. It uses JSON Server as a backend to simulate a REST API. Users can also navigate to a detailed view for each job and apply for a position. The app features a fixed navbar, responsive layout, and real-time updates on CRUD operations.
 
-Currently, two official plugins are available:
+# Technologies Used
+Frontend: React, React Router, React Context API
+Server: JSON Server
+Styling: CSS
+Notifications: React Toastify
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Features
+Home Page: Displays all job postings with job title, description, company, location, and salary.
+ search and filter functionality for job listings.
 
-## React Compiler
+Job Form: Users can post a new job with full details.
+Job Details: Users can view detailed information about each job.
+Update Job: Users can edit job details on a dedicated update page.
+Delete Job: Users can delete a job directly from the job card.
+Apply Page: Users can apply for a job using an application form.
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
 
-Note: This will impact Vite dev & build performances.
+# Project Structure
+src/
+│
+├─ components/
+│   ├─ JobCard.jsx        # Displays a single job card with update/delete buttons
+│   └─ JobForm.jsx        # Form to create a new job posting
+│
+├─ context/
+│   └─ JobContext.jsx     # Context API to manage job state with JSON Server
+│
+├─ pages/
+│   ├─ HomePage.jsx       # Displays all jobs
+│   ├─ JobDetails.jsx     # Shows details for a specific job
+│   ├─ UpdateJob.jsx      # Page to edit a specific job
+│   └─ Apply.jsx          # Job application form
+│
+├─ App.jsx                # Routing setup
 
-## Expanding the ESLint configuration
+# CRUD Functionality
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Create: JobForm.jsx submits a new job to JSON Server using POST.
+Read: HomePage fetches jobs from JSON Server using GET.
+Update: UpdateJob.jsx edits job details using PUT and updates context state.
+Delete: JobCard delete button removes a job using DELETE and updates context state.
+All CRUD operations automatically update the React Context state to reflect changes in the UI.
+
+# Routing & Navigation
+React Router handles routing:
+/ → Home page
+/form → Create job form
+/jobs/:id → Job details
+/edit/:id → Update job page
+/apply/:id → Apply for a job
+
+
+# Styling & UI
+Navbar: Fixed top position, full width, dark background, responsive links.
+Job Cards: Display title, description, company, location, salary, and buttons for View, Update, and Delete.
+Forms: Clean input fields with validation and error messages.
+Notifications: React Toastify shows success/error messages on CRUD operations.
+
+# Challenges Faced
+ID Mismatch: JSON Server uses numeric IDs, React created string IDs. Fixed by letting JSON Server generate IDs.
+Delete/Update Not Working: Initially due to state not syncing with JSON Server. Fixed with async fetch and state updates.
+Navbar Overlap: Content was hiding under the fixed navbar. Fixed with padding-top on the main content container.
+Responsive Layout: Ensuring job cards and forms look good on all screen sizes required CSS adjustments.
+
+# Future Improvements
+Add user authentication for posting and editing jobs.
+Improve mobile responsiveness and design with CSS frameworks like Tailwind.
+Add pagination for large numbers of jobs.
+Include upload feature for resumes in Apply page.

@@ -1,8 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useJobContext } from "../context/JobContext";
 import "./JobCard.css";
 
 export default function JobCard({ job }) {
+  const { deleteJob } = useJobContext();
+  const navigate = useNavigate();
+
+  function handleDelete() {
+    deleteJob(job.id);
+  }
+
   return (
     <div className="job-card">
       <h3>{job.jobTitle}</h3>
@@ -11,9 +19,25 @@ export default function JobCard({ job }) {
       <p>Location: {job.location}</p>
       <p>Salary: KES {job.salary}</p>
 
-      <Link to={`/jobs/${job.id}`}>
-        <button>View Details</button>
-      </Link>
+      <div className="card-buttons">
+        <Link to={`/jobs/${job.id}`}>
+          <button className="view-btn">View</button>
+        </Link>
+
+        <button
+          className="edit-btn"
+          onClick={() => navigate(`/edit/${job.id}`)}
+        >
+          Update
+        </button>
+
+        <button
+          className="delete-btn"
+          onClick={handleDelete}
+        >
+          Delete
+        </button>
+      </div>
     </div>
   );
 }

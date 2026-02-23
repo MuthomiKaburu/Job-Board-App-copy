@@ -5,7 +5,7 @@
       "jobTitle": "Travel Consultant",
       "jobDescription": "Booking travel itineraries",
       "company": "Poriscape",
-      "salary": "1000000",
+      "salary": "100008",
       "startDate": "2026-03-01",
       "noticePeriod": "1 Week",
       "name": "Fatuma Asman",
@@ -18,7 +18,7 @@
       "jobTitle": "Web Developer",
       "jobDescription": "Build and maintain websites",
       "company": "Tech Solutions",
-      "salary": "150000",
+      "salary": "15000",
       "startDate": "2026-04-01",
       "noticePeriod": "2 Weeks",
       "name": "John Doe",
@@ -40,19 +40,6 @@
       "education": "Certificate"
     },
     {
-      "id": "9e4c",
-      "jobTitle": "Receptionist",
-      "jobDescription": "Welcome guests and answer phones",
-      "company": "City Hotel",
-      "salary": "45000",
-      "startDate": "2026-03-01",
-      "noticePeriod": "1 Week",
-      "name": "Alice Kim",
-      "location": "Kisumu",
-      "qualification": "Diploma",
-      "education": "Business"
-    },
-    {
       "id": "11b2",
       "jobTitle": "Internship",
       "jobDescription": "work at the office",
@@ -66,21 +53,6 @@
       "location": "kitale",
       "qualification": "undergraduate",
       "education": "undergraduate"
-    },
-    {
-      "id": "a390",
-      "jobTitle": "Fish Monger",
-      "jobDescription": "Kuvua samaki",
-      "company": "Fishyyyyyy",
-      "salary": "34567",
-      "startDate": "2026-02-03",
-      "noticePeriod": "2 weeks",
-      "name": "Rite Fish",
-      "mobileNumber": "4567890",
-      "email": "RFish@gmail.com",
-      "location": "Kisumu",
-      "qualification": "primary school certificate",
-      "education": "primary school"
     }
   ],
   "applications": [
@@ -90,7 +62,7 @@
       "email": "dsfg@gmail.com",
       "resume": "dsfg",
       "coverLetter": "sdf",
-      "jobId": "a390",
+      "jobId": null,
       "status": "Pending",
       "appliedAt": "2026-02-21T11:44:24.959Z"
     },
@@ -110,7 +82,7 @@
       "email": "dsfg@gmail.com",
       "resume": "sdfvb",
       "coverLetter": "wowow",
-      "jobId": "a390",
+      "jobId": null,
       "status": "Pending",
       "appliedAt": "2026-02-21T12:19:32.359Z"
     },
