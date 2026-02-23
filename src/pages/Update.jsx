@@ -1,12 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { useJobContext } from "../context/JobContext";
+import "./Update.css";
+
+const API_URL = "http://localhost:3001/jobs";
 
 export default function AdminPage() {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { jobs, updateJob } = useJobContext();
 
+  const [loading, setLoading] = useState(true);
+  const [jobNotFound, setJobNotFound] = useState(false);
+
+  // Store the full job so PUT won't wipe fields you don't edit
+  const [job, setJob] = useState(null);
+
+  // Only fields you edit in the form
   const [formData, setFormData] = useState({
     jobTitle: "",
     jobDescription: "",
@@ -14,47 +22,113 @@ export default function AdminPage() {
     salary: ""
   });
 
+  // 1) Load job by id
   useEffect(() => {
-    const jobToEdit = jobs.find(
-      (job) => job.id === Number(id)
-    );
+    async function loadJob() {
+      try {
+        setLoading(true);
+        setJobNotFound(false);
 
-    if (jobToEdit) {
-      setFormData({
-        jobTitle: jobToEdit.jobTitle,
-        jobDescription: jobToEdit.jobDescription,
-        company: jobToEdit.company,
-        salary: jobToEdit.salary
-      });
+        const res = await fetch(`${API_URL}/${id}`);
+        if (!res.ok) {
+          setJobNotFound(true);
+          setJob(null);
+          return;
+        }
+
+        const data = await res.json();
+        setJob(data);
+
+        setFormData({
+          jobTitle: data.jobTitle ?? data.title ?? "",
+          jobDescription: data.jobDescription ?? data.description ?? "",
+          company: data.company ?? "",
+          salary: data.salary ?? ""
+        });
+      } catch (err) {
+        console.error("Error loading job:", err);
+        setJobNotFound(true);
+      } finally {
+        setLoading(false);
+      }
     }
-  }, [id, jobs]);
+
+    loadJob();
+  }, [id]);
 
   function handleChange(e) {
     const { name, value } = e.target;
-
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value
-    }));
+    setFormData((prev) => ({ ...prev, [name]: value }));
   }
 
-  function handleSubmit(e) {
+  // 2) Update job (PUT)
+  async function handleUpdate(e) {
     e.preventDefault();
 
-    updateJob({
-      ...formData,
-      id: Number(id),
-      salary: Number(formData.salary)
-    });
+    if (!job) return;
 
-    navigate("/");
+    try {
+      const payload = {
+        ...job, // keep all old fields
+        ...formData, // overwrite edited ones
+        id: Number(id),
+        salary: Number(formData.salary)
+      };
+
+      const res = await fetch(`${API_URL}/${id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+
+      if (!res.ok) throw new Error("Update failed");
+
+      navigate("/jobs");
+    } catch (err) {
+      console.error(err);
+      alert("Failed to update job. Check the server and try again.");
+    }
+  }
+
+  // 3) Delete job (DELETE)
+  async function handleDelete() {
+    const ok = window.confirm("Are you sure you want to delete this job?");
+    if (!ok) return;
+
+    try {
+      const res = await fetch(`${API_URL}/${id}`, { method: "DELETE" });
+      if (!res.ok) throw new Error("Delete failed");
+
+      navigate("/jobs");
+    } catch (err) {
+      console.error(err);
+      alert("Failed to delete job. Check the server and try again.");
+    }
+  }
+
+  if (loading) {
+    return (
+      <div className="admin-page">
+        <h2>Edit Job</h2>
+        <p>Loading...</p>
+      </div>
+    );
+  }
+
+  if (jobNotFound) {
+    return (
+      <div className="admin-page">
+        <h2>Edit Job</h2>
+        <p>Job not found.</p>
+      </div>
+    );
   }
 
   return (
     <div className="admin-page">
       <h2>Edit Job</h2>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleUpdate}>
         <input
           type="text"
           name="jobTitle"
@@ -90,7 +164,24 @@ export default function AdminPage() {
           required
         />
 
-        <button type="submit">Update Job</button>
+        <div style={{ display: "flex", gap: "12px", marginTop: "16px" }}>
+          <button type="submit">Update Job</button>
+
+          <button
+            type="button"
+            onClick={handleDelete}
+            style={{
+              background: "#dc2626",
+              color: "white",
+              border: "none",
+              borderRadius: "8px",
+              padding: "10px 14px",
+              cursor: "pointer"
+            }}
+          >
+            Delete Job
+          </button>
+        </div>
       </form>
     </div>
   );

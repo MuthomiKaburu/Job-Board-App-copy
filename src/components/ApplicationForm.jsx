@@ -72,7 +72,6 @@ function ApplicationForm({ jobId, jobTitle }) {
 
   return (
     <div className="application-form-container">
-      
       <form className="application-form" onSubmit={handleSubmit}>
         <div className="form-group">
           <label htmlFor="name">Full Name *</label>

@@ -8,7 +8,6 @@ import Apply from "./pages/Apply";
 
 function App() {
   return (
-    <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/form" element={<JobForm />} />
@@ -16,7 +15,6 @@ function App() {
         <Route path="/apply/:id" element={<Apply />} />
 
       </Routes>
-    </BrowserRouter>
   );
 }
 

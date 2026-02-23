@@ -53,21 +53,6 @@
       "education": "Business"
     },
     {
-      "id": "11b2",
-      "jobTitle": "Internship",
-      "jobDescription": "work at the office",
-      "company": "elimu bora",
-      "salary": "45678",
-      "startDate": "2026-02-03",
-      "noticePeriod": "5",
-      "name": "dfghj",
-      "mobileNumber": "4567890",
-      "email": "sdfghjkltr@gmail.com",
-      "location": "kitale",
-      "qualification": "undergraduate",
-      "education": "undergraduate"
-    },
-    {
       "id": "a390",
       "jobTitle": "Fish Monger",
       "jobDescription": "Kuvua samaki",
@@ -100,7 +85,7 @@
       "email": "sdfd@rfgh",
       "resume": "sdfvb",
       "coverLetter": "sedf",
-      "jobId": "11b2",
+      "jobId": null,
       "status": "Pending",
       "appliedAt": "2026-02-21T11:45:23.073Z"
     },
