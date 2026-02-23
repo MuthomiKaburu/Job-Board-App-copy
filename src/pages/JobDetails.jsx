@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import jobsData from "../../db.json";
 import "./JobDetail.css";
 
 export default function JobDetails() {
@@ -9,9 +8,10 @@ export default function JobDetails() {
   const [job, setJob] = useState(null);
 
   useEffect(() => {
-    // Find the job from the imported JSON data
-    const foundJob = jobsData.jobs.find(job => job.id === id);
-    setJob(foundJob);
+    fetch(`http://localhost:3001/jobs/${id}`)
+      .then((res) => res.json())
+      .then((data) => setJob(data))
+      .catch((err) => console.error(err));
   }, [id]);
 
   if (!job) return <p>Loading...</p>;

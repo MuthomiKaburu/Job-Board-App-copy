@@ -41,10 +41,16 @@ function ApplicationForm({ jobId, jobTitle }) {
     try {
       setLoading(true);
 
-      // Simulate API call delay
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      const response = await fetch("http://localhost:3001/applications", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newApplication)
+      });
 
-      // For demo purposes, simulate successful submission
+      if (!response.ok) {
+        throw new Error("Failed to submit application");
+      }
+
       toast.success("Application submitted successfully!");
 
       setFormData({

@@ -1,12 +1,11 @@
 import React, {createContext,useContext,useEffect,useState} from "react";
-import jobsData from "../../db.json";
 
 const JobContext = createContext();
 
 export default  function JobProvider({children}){
     const [jobs,setJobs] = useState(() =>{
         const storedJobs = localStorage.getItem("jobs");
-        return storedJobs ? JSON.parse(storedJobs) : jobsData.jobs
+        return storedJobs ? JSON.parse(storedJobs) : []
     })
 
     useEffect(() =>{
