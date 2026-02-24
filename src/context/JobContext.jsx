@@ -6,7 +6,7 @@ export default function JobProvider({ children }) {
   const [jobs, setJobs] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3001/jobs")
+    fetch("https://job-board-app-copy.onrender.com/jobs")
       .then(res => res.json())
       .then(data => setJobs(data))
       .catch(err => console.error(err));
@@ -14,7 +14,7 @@ export default function JobProvider({ children }) {
 
   // CREATE
   function addJob(job) {
-    fetch("http://localhost:3001/jobs", {
+    fetch("https://job-board-app-copy.onrender.com/jobs", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(job)
@@ -26,7 +26,7 @@ export default function JobProvider({ children }) {
 
   // UPDATE
   function updateJob(updatedJob) {
-    fetch(`http://localhost:3001/jobs/${updatedJob.id}`, {
+    fetch(`https://job-board-app-copy.onrender.com/jobs/${updatedJob.id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(updatedJob)
@@ -42,7 +42,7 @@ export default function JobProvider({ children }) {
 
   // DELETE
   function deleteJob(id) {
-    fetch(`http://localhost:3001/jobs/${id}`, { method: "DELETE" })
+    fetch(`https://job-board-app-copy.onrender.com/jobs/${id}`, { method: "DELETE" })
       .then(() => setJobs(prev => prev.filter(job => job.id !== id)))
       .catch(err => console.error(err));
   }
