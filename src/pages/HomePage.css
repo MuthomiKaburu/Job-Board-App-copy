@@ -31,13 +31,13 @@ body {
   margin-right: auto;
 }
 
-.search-bar {
+.search-container {
   display: flex;
   justify-content: center;
   margin-bottom: 50px;
 }
 
-.search-bar input {
+.search-input {
   width: 100%;
   max-width: 700px;
   padding: 18px 30px;
@@ -51,12 +51,12 @@ body {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
-.search-bar input::placeholder {
+.search-input::placeholder {
   color: #94a3b8;
   font-style: italic;
 }
 
-.search-bar input:focus {
+.search-input:focus {
   border-color: #1e40af;
   box-shadow: 0 8px 15px rgba(30, 64, 175, 0.15);
   transform: scale(1.02);
