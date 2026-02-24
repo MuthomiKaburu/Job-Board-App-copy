@@ -34,7 +34,7 @@ export default function JobProvider({ children }) {
       .then(res => res.json())
       .then(data => {
         setJobs(prev =>
-          prev.map(job => (job.id === data.id ? data : job))
+          prev.map(job => (job.id === data.id ?data : job))
         );
       })
       .catch(err => console.error(err));
