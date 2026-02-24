@@ -7,7 +7,7 @@ export default function JobPage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:3001/jobs")
+    fetch("https://job-board-app-copy.onrender.com/jobs")
       .then((res) => res.json())
       .then((data) => {
         setJobs(data);

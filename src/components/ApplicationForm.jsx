@@ -41,7 +41,7 @@ function ApplicationForm({ jobId, jobTitle }) {
     try {
       setLoading(true);
 
-      const response = await fetch("http://localhost:3001/applications", {
+      const response = await fetch("https://job-board-app-copy.onrender.com/applications", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newApplication)

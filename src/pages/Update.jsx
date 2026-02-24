@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "./Update.css";
 
-const API_URL = "http://localhost:3001/jobs";
+const API_URL = "https://job-board-app-copy.onrender.com/jobs";
 
 export default function AdminPage() {
   const { id } = useParams();

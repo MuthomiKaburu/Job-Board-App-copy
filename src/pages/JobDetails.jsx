@@ -8,7 +8,7 @@ export default function JobDetails() {
   const [job, setJob] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:3001/jobs/${id}`)
+    fetch(`https://job-board-app-copy.onrender.com/jobs/${id}`)
       .then((res) => res.json())
       .then((data) => setJob(data))
       .catch((err) => console.error(err));
